@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quora posts</title>
+</head>
+<body>
+    <h1>Quara</h1>
+    <div class="posts">
+        <% for (const post of posts) {%>
+            <div class="post">
+                <p>username : @<%= post.username %></p>
+                <div class="content">
+                    <textarea name="" id="" readonly >
+                        <%= post.content %>
+                    </textarea>
+                </div>
+                <p>date : <%= post.date%></p>
+            </div>
+            <% } %>
+    </div>
+    <form action="/posts/new">
+        <button>add new post</button>
+    </form>
+</body>
+</html>
