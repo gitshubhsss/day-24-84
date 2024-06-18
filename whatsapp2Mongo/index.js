@@ -75,9 +75,17 @@ app.get("/chats/:_id/edit",async(req,res)=>{
 app.put("/edit/:_id",async(req,res)=>{
     let {_id}=req.params;
     let {msg:newMsg}=req.body;
-    console.log(msg);
     console.log(_id);
     let upadatedChat= await Chat.findByIdAndUpdate(_id,{msg:newMsg},{new:true,runValidators:true});
     console.log(upadatedChat);
+    res.redirect("/chats");
+});
+
+//delelte chat on the basis of id
+
+app.delete("/chats/:_id",async(req,res)=>{
+    let {_id}=req.params;
+    let deleteChat=await Chat.findByIdAndDelete(_id,{new:true});
+    console.log(deleteChat);
     res.redirect("/chats");
 })
